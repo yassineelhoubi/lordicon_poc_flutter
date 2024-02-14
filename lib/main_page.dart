@@ -9,17 +9,23 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Main Page"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Welcome to the Main Page!',
-            style: TextStyle(fontSize: 20),
-          ),
-          Spacer(),
-          Container(
-            padding: EdgeInsets.only(bottom: 10, top: 0, left: 5, right: 5),
-            child: CustomButton(
+      body: Container(
+        padding: EdgeInsets.only(bottom: 10, top: 5, left: 5, right: 5),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Container(
+                // color: Colors.blue,
+                child: Center(
+                  child: Text(
+                    'Welcome to the Main Page!',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+            ),
+            CustomButton(
               text: 'Go to Test',
               onPressed: () {
                 Navigator.push(
@@ -28,8 +34,8 @@ class MainPage extends StatelessWidget {
                 );
               },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
