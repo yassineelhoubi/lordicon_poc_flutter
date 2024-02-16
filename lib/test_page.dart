@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'custom_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lordicon/lordicon.dart';
 
 class TestPage extends StatelessWidget {
   @override
@@ -29,7 +30,7 @@ class TestPage extends StatelessWidget {
                         Center(child: MyCustomContainer()),
                         Container(
                           padding: EdgeInsets.all(20),
-                          child: Column(
+                          child: const Column(
                             children: [
                               Text(
                                 'Oups !!',
@@ -70,12 +71,33 @@ class TestPage extends StatelessWidget {
 class MyCustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var controller =
+        IconController.assets('assets/wired-outline-1140-error.json');
+
+    controller.addStatusListener((status) {
+      if (status == ControllerStatus.ready) {
+        controller.playFromBeginning();
+      }
+    });
     return Container(
       width: double.infinity,
       height: 300,
       child: Center(
-        child: SvgPicture.asset(
-          'assets/Panne.svg',
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            SvgPicture.asset(
+              'assets/Panne.svg',
+            ),
+            Container(
+              width: 150,
+              height: 150,
+              margin: EdgeInsets.only(top: 20),
+              child: IconViewer(
+                controller: controller,
+              ),
+            ),
+          ],
         ),
       ),
     );
