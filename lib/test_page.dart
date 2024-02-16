@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'custom_button.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class TestPage extends StatelessWidget {
   @override
@@ -15,23 +16,37 @@ class TestPage extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
-                color: Colors.blue,
+                // color: Colors.blue,
                 child: Center(
                   child: Container(
                     margin: const EdgeInsets.only(
                         bottom: 50, top: 50, left: 10, right: 10),
+                    // padding: EdgeInsets.only(top: 10, bottom: 10),
                     width: double.infinity,
                     color: Colors.white,
                     child: Column(
                       children: [
                         Center(child: MyCustomContainer()),
-                        Text(
-                          'Welcome to the Main Page!',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        Text(
-                          'Welcome to the Main Page!',
-                          style: TextStyle(fontSize: 20),
+                        Container(
+                          padding: EdgeInsets.all(20),
+                          child: Column(
+                            children: [
+                              Text(
+                                'Oups !!',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                'Une petite panne',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                'Nous rencontrons actuellement un problème technique. Veuillez réessayer ultérieurement.',
+                                style: TextStyle(fontSize: 15),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -56,21 +71,11 @@ class MyCustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200.0,
-      height: 200.0,
-      decoration: BoxDecoration(
-        // Set background image
-        image: DecorationImage(
-          image: AssetImage('assets/Panne.png'), // Replace with your image path
-          fit: BoxFit.cover,
-        ),
-      ),
+      width: double.infinity,
+      height: 300,
       child: Center(
-        // Icon in the middle of the container
-        child: Icon(
-          Icons.star,
-          size: 50.0,
-          color: Colors.white,
+        child: SvgPicture.asset(
+          'assets/Panne.svg',
         ),
       ),
     );
