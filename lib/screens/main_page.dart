@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'test_page.dart';
-import 'custom_button.dart';
+import '../widgets/custom_button.dart';
 
 class MainPage extends StatelessWidget {
   @override
