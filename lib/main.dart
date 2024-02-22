@@ -32,6 +32,19 @@ class MyApp extends StatelessWidget {
                 )
               : ThemeData.light().copyWith(
                   scaffoldBackgroundColor: const Color(0xffffffff),
+                  colorScheme: const ColorScheme(
+                    brightness: Brightness.light,
+                    primary: Color(0xff0a97ff),
+                    onPrimary: Colors.white,
+                    secondary: Color(0xff788691),
+                    onSecondary: Colors.white,
+                    background: Colors.white,
+                    onBackground: Color(0xff0a97ff),
+                    surface: Colors.white,
+                    onSurface: Colors.black,
+                    error: Colors.red,
+                    onError: Colors.white,
+                  ),
                 );
 
           return MaterialApp(

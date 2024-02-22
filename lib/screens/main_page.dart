@@ -4,6 +4,7 @@ import 'package:lordicon_poc/widgets/custom_button.dart';
 import 'package:lordicon_poc/widgets/dark_mode_switch.dart';
 import 'package:provider/provider.dart';
 import '../dark_mode_provider.dart';
+import 'package:lordicon_poc/widgets/Text_widget.dart';
 
 class MainPage extends StatelessWidget {
   @override
@@ -28,10 +29,10 @@ class MainPage extends StatelessWidget {
             Expanded(
               child: Container(
                 // color: Colors.blue,
-                child: Center(
-                  child: Text(
-                    'Welcome to the Main Page!',
-                    style: TextStyle(fontSize: 20),
+                child: const Center(
+                  child: TextWidget(
+                    text: 'Welcome to the Main Page!',
+                    fontSize: 20,
                   ),
                 ),
               ),

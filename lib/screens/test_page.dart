@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lordicon_poc/widgets/Text_widget.dart';
 import '../widgets/custom_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lordicon/lordicon.dart';
@@ -37,21 +38,22 @@ class TestPage extends StatelessWidget {
                         Center(child: MyCustomContainer()),
                         Container(
                           padding: EdgeInsets.all(20),
-                          child: const Column(
+                          child: Column(
                             children: [
-                              Text(
-                                'Oups !!',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              TextWidget(
+                                text: 'Oups !!',
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
                               ),
-                              Text(
-                                'Une petite panne',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              TextWidget(
+                                text: 'Une petite panne',
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
                               ),
-                              Text(
-                                'Nous rencontrons actuellement un problème technique. Veuillez réessayer ultérieurement.',
-                                style: TextStyle(fontSize: 15),
+                              TextWidget(
+                                text:
+                                    'Nous rencontrons actuellement un problème technique. Veuillez réessayer ultérieurement.',
+                                color: Theme.of(context).colorScheme.secondary,
                               ),
                             ],
                           ),

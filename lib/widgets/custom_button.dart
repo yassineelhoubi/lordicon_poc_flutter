@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lordicon_poc/widgets/Text_widget.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -34,7 +35,7 @@ class CustomButton extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 clipBehavior: Clip.antiAlias,
                 decoration: ShapeDecoration(
-                  color: Color(0xFF0A97FF),
+                  color: Theme.of(context).colorScheme.primary,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
                 ),
@@ -43,15 +44,11 @@ class CustomButton extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      text,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
-                        height: 0.08,
-                      ),
+                    TextWidget(
+                      text: text,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   ],
                 ),
