@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'screens/main_page.dart';
 import 'package:provider/provider.dart';
 import 'dark_mode_provider.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,6 +15,10 @@ class MyApp extends StatelessWidget {
       create: (context) => DarkModeProvider(),
       child: Consumer<DarkModeProvider>(
         builder: (context, darkModeProvider, child) {
+          // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+          //   systemNavigationBarColor:
+          //       darkModeProvider.isDarkMode ? Colors.amber : Colors.purple,
+          // ));
           ThemeData theme = darkModeProvider.isDarkMode
               ? ThemeData.dark().copyWith(
                   // Customize dark mode colors here

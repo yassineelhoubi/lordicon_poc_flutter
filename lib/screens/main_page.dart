@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'test_page.dart';
 import 'package:lordicon_poc/widgets/custom_button.dart';
 import 'package:lordicon_poc/widgets/dark_mode_switch.dart';
@@ -14,7 +15,17 @@ class MainPage extends StatelessWidget {
         darkModeProvider.isDarkMode ? ThemeData.dark() : ThemeData.light();
     return Scaffold(
       appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(
+          systemNavigationBarColor: darkModeProvider.isDarkMode
+              ? Color(0xff00060a)
+              : Colors.white, // Navigation bar
+          statusBarBrightness:
+              darkModeProvider.isDarkMode ? Brightness.light : Brightness.dark,
+          statusBarIconBrightness:
+              darkModeProvider.isDarkMode ? Brightness.light : Brightness.dark,
+        ),
         title: Text("Main Page"),
+        // backgroundColor: Colors.green,
         actions: [
           Builder(
             builder: (context) => DarkModeSwitch(),
