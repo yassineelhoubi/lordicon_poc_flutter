@@ -19,6 +19,8 @@ class MainPage extends StatelessWidget {
           systemNavigationBarColor: darkModeProvider.isDarkMode
               ? Color(0xff00060a)
               : Colors.white, // Navigation bar
+          statusBarColor:
+              darkModeProvider.isDarkMode ? Color(0xff00060a) : Colors.white,
           statusBarBrightness:
               darkModeProvider.isDarkMode ? Brightness.light : Brightness.dark,
           statusBarIconBrightness:
