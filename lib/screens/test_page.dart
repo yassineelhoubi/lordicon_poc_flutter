@@ -6,6 +6,7 @@ import 'package:lordicon/lordicon.dart';
 import 'package:provider/provider.dart';
 import '../dark_mode_provider.dart';
 import 'package:flutter/services.dart';
+import 'package:lordicon_poc/widgets/dark_mode_switch.dart';
 
 class TestPage extends StatelessWidget {
   @override
@@ -17,6 +18,15 @@ class TestPage extends StatelessWidget {
       // appBar: AppBar(
       //   title: Text('Second Page'),
       // ),
+      appBar: AppBar(
+        title: Text("Main Page"),
+        // backgroundColor: Colors.green,
+        actions: [
+          Builder(
+            builder: (context) => DarkModeSwitch(),
+          ),
+        ],
+      ),
       body: Container(
         padding: EdgeInsets.only(bottom: 10, top: 5, left: 5, right: 5),
         // color: Theme.of(context).colorScheme.background,
@@ -83,8 +93,9 @@ class MyCustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeProvider>(context);
 
-    var controller =
-        IconController.assets('assets/wired-outline-1140-error.json');
+    var controller = IconController.assets(darkModeProvider.isDarkMode
+        ? 'assets/wired-outline-1140-error-dark-mode.json'
+        : 'assets/wired-outline-1140-error.json');
 
     controller.addStatusListener((status) {
       if (status == ControllerStatus.ready) {
